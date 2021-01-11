@@ -9,5 +9,4 @@ jobs:
         name: Notify
         steps:
             - name: Build
-              uses: actions/Apartment@develop
               run: ls
