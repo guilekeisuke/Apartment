@@ -1,0 +1,17 @@
+# postgres
+postgres/*
+
+# IDE / Editor
+.idea
+
+# Service worker
+sw.*
+
+# Mac OSX
+.DS_Store
+
+# Vim swap files
+*.swp
+
+# history
+.history/*
