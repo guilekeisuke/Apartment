@@ -9,4 +9,4 @@ jobs:
         name: Notify
         steps:
             - name: Build
-              run: ls
+              run: pwd
