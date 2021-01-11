@@ -11,7 +11,7 @@ services:
       - ./api:/go/api
     ports:
       - "1323:1323"
-    command: realize start --run --no-config
+    # command: realize start --run --no-config
     restart: always
   postgres:
     container_name: postgres
