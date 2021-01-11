@@ -17,18 +17,9 @@ jobs:
               run: |
                 pwd
                 ls
-            - name: docker
+            - name: docker exec
               run: |
                 docker-compose ps
                 docker-compose up -d
-                docker exec -it echo pwd
-            - name: Build
-              run: |
-                export GOPATH=$HOME/work/Apartment/Apartment/api
-                go env GOPATH
-            # - name: Build
-            #   run: |
-            #     export GOPATH=$HOME/work/Apartment/Apartment/api
-            #     go env GOPATH
-            #     go run $HOME/work/Apartment/Apartment/api/external/movie_upcoming.go
+                docker exec -it echo go run external/movie_upcoming.go
 
