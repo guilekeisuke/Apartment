@@ -16,7 +16,6 @@ jobs:
             - name: Pwd
               run: |
                 pwd
-                cd Apartment/api/external
                 ls
             - name: Build
               run: |
