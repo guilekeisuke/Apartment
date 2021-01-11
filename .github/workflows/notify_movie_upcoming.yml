@@ -18,7 +18,7 @@ jobs:
                 pwd
                 ls
             - name: docker
-              run: docker ps
+              run: docker-compose ps
             - name: Build
               run: |
                 export GOPATH=$HOME/work/Apartment/Apartment/api
