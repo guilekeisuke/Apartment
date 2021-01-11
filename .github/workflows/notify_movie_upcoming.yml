@@ -9,6 +9,6 @@ jobs:
         name: Notify
         steps:
             - name: Checkout
-              usees: actions/Apartment@develop
+              uses: actions/Apartment@develop
             - name: Build
               run: ls
