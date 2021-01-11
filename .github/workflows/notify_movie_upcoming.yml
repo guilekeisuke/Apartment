@@ -13,11 +13,9 @@ jobs:
               with:
                 repository: k-udmrorrr1414/Apartment
                 path: Apartment
-            - name: Dokcer actions
-              uses: ./
-            - name: GOPATH
-              run: export GOPATH=$HOME/work/Apartment/Apartment/api
             - name: Pwd
               run: pwd
             - name: Build
-              run: go env GOPATH
+            - run: |
+                export GOPATH=$HOME/work/Apartment/Apartment/api
+                go env GOPATH
