@@ -16,4 +16,4 @@ jobs:
             - name: Pwd
               run: pwd
             - name: Build
-              run: go version
+              run: go env GOPATH
