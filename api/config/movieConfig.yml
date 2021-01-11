@@ -1,0 +1,3 @@
+settings:
+    baseUrl: https://image.tmdb.org/t/p/w500
+    apiKey: 25b6af2ce982005bfd1e06e65e04828e
