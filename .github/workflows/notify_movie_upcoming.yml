@@ -13,8 +13,8 @@ jobs:
               with:
                 repository: k-udmrorrr1414/Apartment
                 path: Apartment
-            - name: Home
-              run: echo $HOME
+            - name: GOPATH
+              run: export GOPATH=$HOME/work/Apartment/Apartment/api
             - name: Pwd
               run: pwd
             - name: Build
