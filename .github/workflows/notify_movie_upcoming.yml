@@ -12,8 +12,8 @@ jobs:
               uses: actions/checkout@v2
               with:
                 repository: k-udmrorrr1414/Apartment
-                path: Apartment/api/
+                path: Apartment
             - name: Pwd
               run: pwd
             - name: Build
-              run: go run ./Apartment/api/external/movie_upcoming.go
+              run: go version
