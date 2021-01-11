@@ -14,7 +14,9 @@ jobs:
                 repository: k-udmrorrr1414/Apartment
                 path: Apartment
             - name: Pwd
-              run: pwd
+              run: |
+                pwd
+                ls
             - name: Build
             　run: |
                 export GOPATH=$HOME/work/Apartment/Apartment/api
