@@ -63,7 +63,5 @@ func main() {
 	resp["total_results"] = movieUpcoming.TotalResults
 	resp["results"] = itemSlice
 
-	baseUrl := confData.Settings.baseUrl
-
 	fmt.Println(resp)
 }
