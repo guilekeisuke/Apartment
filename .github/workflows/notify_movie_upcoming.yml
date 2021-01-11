@@ -16,10 +16,15 @@ jobs:
             - name: Pwd
               run: |
                 pwd
+                cd Apartment
                 ls
             - name: Build
               run: |
                 export GOPATH=$HOME/work/Apartment/Apartment/api
                 go env GOPATH
-                go run $HOME/work/Apartment/Apartment/api/external/movie_upcoming.go
+            # - name: Build
+            #   run: |
+            #     export GOPATH=$HOME/work/Apartment/Apartment/api
+            #     go env GOPATH
+            #     go run $HOME/work/Apartment/Apartment/api/external/movie_upcoming.go
 
