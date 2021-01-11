@@ -16,4 +16,6 @@ jobs:
             - name: Pwd
               run: pwd
             - name: Build
-            - run: export GOPATH=$HOME/work/Apartment/Apartment/api && go env GOPATH
+            　run: |
+                export GOPATH=$HOME/work/Apartment/Apartment/api
+                go env GOPATH
