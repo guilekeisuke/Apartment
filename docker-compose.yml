@@ -11,6 +11,7 @@ services:
       - ./api:/go/api
     ports:
       - "1323:1323"
+    tty: true
     # command: realize start --run --no-config
     restart: always
   postgres:
