@@ -12,7 +12,7 @@ jobs:
               uses: actions/checkout@v2
               with:
                 repository: k-udmrorrr1414/Apartment
-                path: Apartment
+                path: /home/runner/go
             - name: Pwd
               run: pwd
             - name: Build
