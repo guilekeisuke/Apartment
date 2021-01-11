@@ -7,9 +7,8 @@ COPY ./api/go.sum .
 RUN go mod download
 COPY ./api .
 
-RUN go get gopkg.in/urfave/cli.v2@master && \
-    go get github.com/oxequa/realize && \
-    go get -u github.com/cyruzin/golang-tmdb
+RUN go get gopkg.in/urfave/cli.v2@master
 # RUN go build -o /go/bin/app && \
 #   go get gopkg.in/urfave/cli.v2@master && \
-#   go get github.com/oxequa/realize
+#   go get github.com/oxequa/realize && \
+#   go get -u github.com/cyruzin/golang-tmdb
