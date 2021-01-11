@@ -14,4 +14,4 @@ jobs:
                 repository: k-udmrorrr1414/Apartment
                 path: Apartment
             - name: Build
-              run: ls
+              run: ls ./Apartment/
