@@ -6,3 +6,7 @@ COPY ./api/go.mod .
 COPY ./api/go.sum .
 RUN go mod download
 COPY ./api .
+
+RUN go build -o /go/bin/app && \
+  go get gopkg.in/urfave/cli.v2@v2.3.0 && \
+  go get github.com/oxequa/realize 

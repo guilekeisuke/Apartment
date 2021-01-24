@@ -13,10 +13,6 @@ jobs:
               with:
                 repository: k-udmrorrr1414/Apartment
                 path: ./
-            - name: Pwd
-              run: |
-                pwd
-                ls
             - name: docker exec
               run: |
                 docker-compose ps

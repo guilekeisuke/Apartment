@@ -1,6 +1,0 @@
-
-name: 'notify_movie_upcoming'
-description: '今週公開予定の映画情報を送信'
-runs:
-    using: 'docker'
-    image: './docker/api/Dockerfile'

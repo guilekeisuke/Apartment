@@ -12,19 +12,4 @@ services:
     ports:
       - "1323:1323"
     tty: true
-    # command: realize start --run --no-config
     restart: always
-  # postgres:
-  #   container_name: postgres
-  #   image: postgres:12
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWOR: orrr-14
-  #     TZ: 'Asia/Tokyo'
-  #   tty: true
-  #   volumes:
-  #     - ./postgres:/var/lib/postgresql/data
-  #   restart: always
-  #   user: root
-  #   ports:
-  #     - "5432:5432"
