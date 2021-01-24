@@ -7,5 +7,8 @@ gmail:
 movieUpcoming:
     fromName: 今月の映画情報のお知らせ
     subject: 【映画情報のお知らせ】今月の公開予定映画一覧
+line:
+    accessToken: hdnRQz5mCmdaabEjqNta1q4Pu5c1kHWZLdU1QUTIdrC
+    api: https://notify-api.line.me/api/notify
 
 

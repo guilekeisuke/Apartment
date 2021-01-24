@@ -3,8 +3,10 @@ package main
 import (
 	"api/config"
 	"fmt"
-	"net/smtp"
-	"os"
+	"log"
+	"net/http"
+	"net/url"
+	"strings"
 
 	_ "image/jpeg"
 	"time"
@@ -13,7 +15,7 @@ import (
 )
 
 var confPath = "/go/api/config/movieConfig.yml"
-var mailConfPath = "/go/api/config/mail.yml"
+var notifyConfPath = "/go/api/config/notify.yml"
 
 func main() {
 	// GetMovierUpcoming: https://pkg.go.dev/github.com/cyruzin/golang-tmdb#Client.GetMovieUpcoming
@@ -68,43 +70,41 @@ func main() {
 	resp["total_results"] = movieUpcoming.TotalResults
 
 	// メール本文フォーマット
-	mailText := ""
+	msg := ""
 	for i := 0; i < len(itemSlice.Results); i++ {
 		title := itemSlice.Results[i].Title
 		releaseDate := itemSlice.Results[i].ReleaseDate
 		baseUrl := confData.Settings.BaseUrl
 		url := baseUrl + itemSlice.Results[i].PosterPath
-		mailText += "\r\n" + "【タイトル】" + "\r\n" + title + "\r\n" + "【公開日】" + "\r\n" + releaseDate + "\r\n" + "【ポスターURL】" + "\r\n" + url + "\r\n"
+		msg += "\r\n" + "【タイトル】" + "\r\n" + title + "\r\n" + "【公開日】" + "\r\n" + releaseDate + "\r\n" + "【ポスターURL】" + "\r\n" + url + "\r\n"
 	}
 
-	// メール送信処理
-	mailConfData, err := config.LoadConfigForYaml(mailConfPath)
+	// line送信処理
+	conf, err := config.LoadConfigForYaml(notifyConfPath)
 	if err != nil {
 		fmt.Println(err)
 		// return err
 	}
+	accessToken := conf.Line.AccessToken
+	URL := conf.Line.Api
 
-	from := mailConfData.Gmail.From
-	to := mailConfData.Gmail.To
-	_smtp := mailConfData.Gmail.Smtp
-	port := mailConfData.Gmail.Port
-	auth := smtp.PlainAuth("", from, mailConfData.Gmail.Password, _smtp)
-	fromName := mailConfData.MovieUpcoming.FromName
-	subject := mailConfData.MovieUpcoming.Subject
-	msg := []byte("" +
-		"From: " + fromName + "<" + from + ">\r\n" +
-		"To: " + to + "\r\n" +
-		"Subject: " + subject + "\r\n" +
-		"\r\n" +
-		mailText +
-		"\r\n" +
-		"")
-	address := _smtp + ":" + port
-	sendMail := smtp.SendMail(address, auth, from, []string{to}, msg)
-	if sendMail != nil {
-		fmt.Fprintf(os.Stderr, "エラー: %v\n", sendMail)
-		return
+	urlRequest, err := url.ParseRequestURI(URL)
+	if err != nil {
+		log.Fatal(err)
 	}
+
+	lineClient := &http.Client{}
+	form := url.Values{}
+	form.Add("message", msg)
+	body := strings.NewReader(form.Encode())
+	req, err := http.NewRequest("POST", urlRequest.String(), body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Authorization", "Bearer "+accessToken)
+
+	lineClient.Do(req)
 }
 
 type movieUpcomingInfo struct {

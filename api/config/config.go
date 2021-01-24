@@ -11,6 +11,7 @@ type config struct {
 	Settings      settings      `yaml:"settings"`
 	Gmail         gmail         `yaml:"gmail"`
 	MovieUpcoming movieUpcoming `yaml:"movieUpcoming"`
+	Line          line          `yaml:"line"`
 }
 
 type settings struct {
@@ -29,6 +30,11 @@ type gmail struct {
 type movieUpcoming struct {
 	FromName string `yaml:"fromName"`
 	Subject  string `yaml:"subject"`
+}
+
+type line struct {
+	AccessToken string `yaml:"accessToken"`
+	Api         string `yaml:"api"`
 }
 
 func LoadConfigForYaml(path string) (*config, error) {
