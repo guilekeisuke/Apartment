@@ -4,7 +4,7 @@ on:
     push:
         branches: [ develop, master ]
     schedule:
-      - cron: '24 19 1 * *'
+      - cron: '27 19 * * *'
     
 jobs:
     notify_job:
