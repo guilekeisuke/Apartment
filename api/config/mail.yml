@@ -5,7 +5,7 @@ gmail:
     smtp: smtp.gmail.com
     port: 587
 movieUpcoming:
-    fromName: 今週の映画情報のお知らせ
-    subject: 【映画情報のお知らせ】今週の公開予定映画一覧
+    fromName: 今月の映画情報のお知らせ
+    subject: 【映画情報のお知らせ】今月の公開予定映画一覧
 
 
