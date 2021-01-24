@@ -1,8 +1,8 @@
-name: notify_movie_upcoming
+name: Scheduled build
 
 on:
-    push:
-        branches: [ develop, master ]
+  schedule:
+    - cron: '16 19 * * *'
 jobs:
     notify_job:
         runs-on: ubuntu-18.04
