@@ -49,7 +49,7 @@ func main() {
 
 	// 日時データ、レスポンス情報の初期化
 	today := time.Now().Format("2006-01-02")
-	after_days := time.Now().Add(24 * 30 * time.Hour).Format("2006-01-02")
+	after_days := time.Now().Add(24 * 7 * time.Hour).Format("2006-01-02")
 	resp := make(map[string]interface{})
 	var itemSlice movieUpcomingInfo
 
